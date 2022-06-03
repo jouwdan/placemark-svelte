@@ -1,8 +1,36 @@
 <script>
     import WelcomeMenu from "../components/WelcomeMenu.svelte"
-  </script>
+</script>
   
-  <WelcomeMenu/>
-  <div class="notification is-link">
-      Hello from Login!
+<WelcomeMenu/>
+<div class="hero from-primary to-secondary text-primary-content -mt-[4rem] flex flex-col items-center bg-gradient-to-br p-16">
+    <div class="hero-content w-full">
+      <h1 class="text-5xl font-bold p-12">Log In To Placemark</h1>
+    </div>
+  </div>
+  <div class="flex justify-center p-12">
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <form action="/authenticate" method="POST">
+        <div class="card-body">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Email</span>
+            </label>
+            <input type="text" placeholder="email" name="email" class="input input-bordered">
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Password</span>
+            </label>
+            <input type="password" placeholder="password" name="password" class="input input-bordered">
+            <label class="label">
+              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            </label>
+          </div>
+          <div class="form-control mt-6">
+            <button class="btn btn-neutral">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
