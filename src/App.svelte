@@ -8,9 +8,10 @@
 
   let routes = {
     "/": Main,
+    "/main": Main,
+    "/logout": Main,
     "/login": Login,
     "/signup": Signup,
-    "/main": Main,
     "/dashboard": Dashboard
   }
 </script>
