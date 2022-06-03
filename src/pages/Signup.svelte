@@ -1,5 +1,10 @@
 <script>
     import WelcomeMenu from "../components/WelcomeMenu.svelte"
+
+    import {push} from "svelte-spa-router";
+
+    let email= "";
+    let password = "";
   </script>
   
   <WelcomeMenu/>
@@ -13,18 +18,13 @@
       <form action="/register" method="POST">
         <div class="card-body">
           <div class="form-control">
-            <label class="label">
-              <span class="label-text">Email</span>
+            <label class="label" for="email">
+                <input bind:value={email}  class="input input-bordered w-full" id="email" name="email"placeholder="Enter Email" type="text">
             </label>
-            <input type="text" placeholder="email" name="email" class="input input-bordered">
           </div>
           <div class="form-control">
-            <label class="label">
-              <span class="label-text">Password</span>
-            </label>
-            <input type="password" placeholder="password" name="password" class="input input-bordered">
-            <label class="label">
-              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+            <label class="label" for="password">
+                <input bind:value={password}  class="input input-bordered w-full" id="password" name="password" placeholder="Enter Password" type="password">
             </label>
           </div>
           <div class="form-control mt-6 justify-center">
