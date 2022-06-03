@@ -1,5 +1,14 @@
 <script>
-    import WelcomeMenu from "../components/WelcomeMenu.svelte"
+    import WelcomeMenu from "../components/WelcomeMenu.svelte";
+
+    import {push} from "svelte-spa-router";
+
+    let email= "";
+    let password = "";
+
+    async function login() {
+        push("/dashboard");
+    }
 </script>
   
 <WelcomeMenu/>
@@ -10,23 +19,16 @@
   </div>
   <div class="flex justify-center p-12">
     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form action="/authenticate" method="POST">
+      <form on:submit|preventDefault={login}>
         <div class="card-body">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Email</span>
-            </label>
-            <input type="text" placeholder="email" name="email" class="input input-bordered">
-          </div>
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Password</span>
-            </label>
-            <input type="password" placeholder="password" name="password" class="input input-bordered">
-            <label class="label">
-              <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-            </label>
-          </div>
+            <div class="form-control">
+                <label class="label" for="email">Email Address</label>
+                    <input bind:value={email}  class="input input-bordered w-full" id="email" name="email"placeholder="Enter Email" type="text">
+              </div>
+              <div class="form-control">
+                <label class="label" for="password">Password</label>
+                <input bind:value={password}  class="input input-bordered w-full" id="password" name="password" placeholder="Enter Password" type="password">
+              </div>
           <div class="form-control mt-6">
             <button class="btn btn-neutral">Login</button>
           </div>

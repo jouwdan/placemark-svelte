@@ -1,5 +1,5 @@
 <script>
-    import WelcomeMenu from "../components/WelcomeMenu.svelte"
+    import WelcomeMenu from "../components/WelcomeMenu.svelte";
 
     import {push} from "svelte-spa-router";
 
