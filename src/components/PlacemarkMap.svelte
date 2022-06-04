@@ -7,8 +7,8 @@
     let restaurantsList = [];
 
     const mapConfig = {
-      location: {lat: 52.160858, lng: -7.152420},
-      zoom: 8,
+      location: {lat: 53.033316878306486, lng: -7.299081135377544},
+      zoom: 15,
       minZoom: 1,
     };
     let map = null;
@@ -20,7 +20,9 @@
 
       restaurantsList = await placemarkService.getRestaurants();
       restaurantsList.forEach(restaurant => {
-          addPlacemark(restaurant);
+          if(restaurant.longitude) {
+            addPlacemark(restaurant);
+          }
       });
     });
 
