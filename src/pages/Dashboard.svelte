@@ -1,5 +1,6 @@
 <script>
     import Menu from "../components/Menu.svelte";
+    import RestaurantsList from "../components/RestaurantsList.svelte";
 </script>
 
 <Menu/>
@@ -11,7 +12,7 @@
   
   
   <div class="container mx-auto mt-4 flex flex-wrap justify-center">
-      list-restaurants
+      <RestaurantsList/>
   </div>
   
   <div class="container mx-auto mt-4">

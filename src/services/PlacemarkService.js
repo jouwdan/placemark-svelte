@@ -58,4 +58,13 @@ export class PlacemarkService {
       return false;
     }
   }
+
+  async getRestaurants() {
+      try {
+          const response = await axios.get(this.baseUrl + "/api/restaurants");
+          return response.data;
+      } catch (error) {
+          return false;
+      }
+  }
 }
