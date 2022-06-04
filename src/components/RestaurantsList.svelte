@@ -11,7 +11,7 @@
 
 {#each restaurantsList as restaurant}
 <div class="card w-72 bg-base-100 shadow-xl p-10 m-2">
-  <a href="/restaurant/{restaurant._id}">
+  <a href="/#/restaurant/{restaurant._id}">
   <div class="box box-link-hover-shadow">
       <h2 class="text-2xl font-bold">
       {restaurant.name}

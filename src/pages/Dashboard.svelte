@@ -1,6 +1,7 @@
 <script>
     import Menu from "../components/Menu.svelte";
     import RestaurantsList from "../components/RestaurantsList.svelte";
+    import AddRestaurant from "../components/AddRestaurant.svelte"
 </script>
 
 <Menu/>
@@ -17,6 +18,6 @@
   
   <div class="container mx-auto mt-4">
     <div class="card bg-base-100 shadow-xl p-10">
-      add-restaurant
+      <AddRestaurant/>
     </div>
   </div>

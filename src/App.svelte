@@ -6,6 +6,7 @@
   import Login from "./pages/Login.svelte"
   import Signup from "./pages/Signup.svelte"
   import Dashboard from "./pages/Dashboard.svelte"
+  import Restaurant from "./pages/Restaurant.svelte"
 
   import Router from "svelte-spa-router";
 
@@ -17,7 +18,8 @@
     "/logout": Main,
     "/login": Login,
     "/signup": Signup,
-    "/dashboard": Dashboard
+    "/dashboard": Dashboard,
+    "/restaurant/:id": Restaurant
   }
 </script>
 

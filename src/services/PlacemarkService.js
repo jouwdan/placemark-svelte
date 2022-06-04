@@ -67,4 +67,13 @@ export class PlacemarkService {
           return false;
       }
   }
+
+  async getRestaurantById(restaurantId) {
+    try {
+        const response = await axios.get(this.baseUrl + "/api/restaurants/" + restaurantId);
+        return response.data;
+    } catch (error) {
+        return false;
+    }
+}
 }
