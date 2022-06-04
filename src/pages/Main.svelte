@@ -1,5 +1,9 @@
 <script>
-  import WelcomeMenu from "../components/WelcomeMenu.svelte"
+  import WelcomeMenu from "../components/WelcomeMenu.svelte";
+  import {getContext} from "svelte";
+
+  const placemarkService = getContext("PlacemarkService");
+  placemarkService.logout();
 </script>
 
 <WelcomeMenu/>
