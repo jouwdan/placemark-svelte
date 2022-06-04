@@ -28,7 +28,6 @@
       <span class="badge my-2">{restaurant.category}</span> restaurant that serves
       <span class="badge badge-primary my-2">{restaurant.cuisine}</span> cuisine.<br>
       Their decription is: <br> {restaurant.description} <br>
-      {#if restaurant.latitude}They are located at {restaurant.latitude}, {restaurant.longitude}{/if}
     </p>
   </div>
 </div>
