@@ -35,7 +35,7 @@
 {#if restaurant.img}
 <div class="container mx-auto mt-4 flex flex-wrap justify-center">
   <div class="card w-full text-center bg-base-100 shadow-xl p-10 m-2">
-    <img src="{restaurant.img}">
+    <img src="{restaurant.img}" alt="{restaurant.name}">
   </div>
 </div>
 {/if}
