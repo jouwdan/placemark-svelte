@@ -7,12 +7,13 @@
     let name = "";
     let description = "";
     let category = "";
+    let cuisine = "";
     let latitude = "";
     let longitude = "";
     let errorMessage = "";
 
     async function addRestaurant() {
-        let success = await placemarkService.addRestaurant(name, description, category, latitude, longitude)
+        let success = await placemarkService.addRestaurant(name, description, category, cuisine, latitude, longitude)
         if (success) {
             push("/login");
         } else {

@@ -1,6 +1,7 @@
 <script>
     import {getContext, onMount} from "svelte";
     import Menu from "../components/Menu.svelte";
+    import RestaurantMap from "../components/RestaurantMap.svelte";
     
     export let params = {};
     let restaurant = {};
@@ -32,11 +33,15 @@
   </div>
 </div>
 
-{#if restaurant.img}
 <div class="container mx-auto mt-4 flex flex-wrap justify-center">
-  <div class="card w-full text-center bg-base-100 shadow-xl p-10 m-2">
+{#if restaurant.img}
+  <div class="card w-1/2 text-center bg-base-100 shadow-xl p-10 m-2">
     <img src="{restaurant.img}" alt="{restaurant.name}">
   </div>
-</div>
 {/if}
-
+{#if restaurant.latitude}
+  <div class="card w-1/3 text-center bg-base-100 shadow-xl p-10 m-2">
+    <RestaurantMap latitude="{restaurant.latitude}" longitude="{restaurant.longitude}"/>
+  </div>
+{/if}
+</div>
