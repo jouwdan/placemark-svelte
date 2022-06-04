@@ -5,6 +5,7 @@
     <div class="flex-none">
       <ul class="menu menu-horizontal p-0">
         <li><a href="/#/dashboard">Dashboard</a></li>
+        <li><a href="/#/map">Map</a></li>
         <li><a href="/#/logout">Log Out</a></li>
       </ul>
     </div>
