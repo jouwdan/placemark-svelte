@@ -30,7 +30,7 @@
         {/if}
         <div class="form-control">
             <label class="label" for="email">Email Address</label>
-                <input bind:value={email}  class="input input-bordered w-full" id="email" name="email"placeholder="Enter Email" type="text">
+                <input bind:value={email}  class="input input-bordered w-full" id="email" name="email" placeholder="Enter Email" type="text">
           </div>
           <div class="form-control">
             <label class="label" for="password">Password</label>

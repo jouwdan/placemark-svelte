@@ -75,5 +75,22 @@ export class PlacemarkService {
     } catch (error) {
         return false;
     }
-}
+  }
+
+  async addRestaurant(name, description, category, cuisine, latitude, longitude) {
+    try {
+      const restaurantDetails = {
+        name: name,
+        description: description,
+        category: category,
+        cuisine: cuisine,
+        latitude: latitude,
+        longitude: longitude
+      };
+      await axios.post(this.baseUrl + "/api/restaurants", restaurantDetails);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
 }
