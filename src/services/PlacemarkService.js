@@ -65,7 +65,7 @@ export class PlacemarkService {
           const response = await axios.get(this.baseUrl + "/api/restaurants");
           return response.data;
       } catch (error) {
-          return false;
+          return [];
       }
   }
 
@@ -74,7 +74,7 @@ export class PlacemarkService {
         const response = await axios.get(this.baseUrl + "/api/restaurants/" + restaurantId);
         return response.data;
     } catch (error) {
-        return false;
+        return []
     }
   }
 
