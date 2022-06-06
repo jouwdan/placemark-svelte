@@ -14,13 +14,25 @@
       restaurant = await placemarkService.getRestaurantById(params.id);
     });
 
+    let fileInput;
+    let files;
+
+    function getBase64(image) {
+        const reader = new FileReader();
+        reader.readAsDataURL(image);
+        reader.onload = e => {
+            fileInput = e.target.result;
+        };
+    };
+
     async function imageUpload() {
       try {
         const id = params.id;
-        const dataArray = new FormData();
-        dataArray.append("imageFile", imageFile);
-        if (imageFile) {
-          let success = await placemarkService.uploadImage(id, dataArray);
+        const data = {};
+        data["image"] = fileInput;
+        if (data) {
+          console.log(data);
+          let success = await placemarkService.uploadImage(id, data);
           if (success) {
             push("/restaurant/" + id);
           }
@@ -68,10 +80,14 @@
     <span class="font-bold">Have an image to upload of {restaurant.name}?</span>
   </p>
   <br>
+  {#if files}
+    <img id="fileInput" src={fileInput} alt="fileInput"/>
+  {/if}
   <div class="flex justify-center">
     <form on:submit|preventDefault={imageUpload} enctype="multipart/form-data">
     <div id="file-select" class="file has-name is-fullwidth">
-      <label class="file-label"> <input type="file" bind:files={imageFile} class="file-input" name="imagefile" accept="image/png, image/jpeg">
+      <label class="file-label">
+        <input type="file" bind:files bind:this={fileInput} on:change={() => getBase64(files[0])} class="file-input" name="imagefile" accept="image/png, image/jpeg">
         <span class="file-cta">
           <span class="file-icon">
             <i class="fas fa-upload"></i>
@@ -79,7 +95,7 @@
          </span>
         <span class="file-name"></span>
       </label>
-      <button type="submit" class="btn">Upload</button>
+      <button class="btn" type="submit">Upload</button>
     </div>
   </form>
   </div>
