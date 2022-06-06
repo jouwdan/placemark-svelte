@@ -1,5 +1,5 @@
 import axios from "axios";
-import {user} from "../stores"
+import {user} from "../stores";
 
 export class PlacemarkService {
   baseUrl = "";
@@ -92,6 +92,15 @@ export class PlacemarkService {
       return true;
     } catch (error) {
       return false;
+    }
+  }
+
+  async uploadImage(id, image) {
+    try {
+        const response = await axios.post(this.baseUrl + "/api/restaurants/" + id + "/uploadimage", image);
+        return response.data;
+    } catch (error) {
+        return (error);
     }
   }
 }
