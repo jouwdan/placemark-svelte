@@ -97,7 +97,16 @@ export class PlacemarkService {
 
   async uploadImage(id, image) {
     try {
-        const response = await axios.post(this.baseUrl + "/api/restaurants/" + id + "/uploadimage", JSON.stringify(image));
+        const response = await axios.post(this.baseUrl + "/api/restaurants/" + id + "/uploadimage", image);
+        return response.data;
+    } catch (error) {
+        return (error);
+    }
+  }
+
+  async deleteImage(id) {
+    try {
+        const response = await axios.post(this.baseUrl + "/api/restaurants/" + id + "/deleteimage");
         return response.data;
     } catch (error) {
         return (error);

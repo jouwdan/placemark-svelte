@@ -16,6 +16,8 @@
 
     let fileInput;
     let files;
+    let uploadComplete = "";
+    let deleteComplete = "";
 
     function getBase64(image) {
         const reader = new FileReader();
@@ -28,16 +30,31 @@
     async function imageUpload() {
       try {
         const id = params.id;
-        const data = {};
-        data["image"] = fileInput;
+        var data = new FormData();
+        data.append('data', fileInput)
         if (data) {
           console.log(data);
           let success = await placemarkService.uploadImage(id, data);
           if (success) {
             push("/restaurant/" + id);
+            uploadComplete = "true";
           }
         }
         push("/restaurant/" + id);
+        uploadComplete = "true";
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    async function deleteImage() {
+      try {
+        const id = params.id;
+        let success = await placemarkService.deleteImage(id);
+        if (success) {
+          push("/restaurant/" + id);
+          deleteComplete = "true";
+        }
       } catch (err) {
         console.log(err);
       }
@@ -72,6 +89,18 @@
 {#if restaurant.img}
   <div class="card w-1/2 text-center bg-base-100 shadow-xl p-10 m-2">
     <img src="{restaurant.img}" alt="{restaurant.name}">
+    <form on:submit|preventDefault={deleteImage} enctype="multipart/form-data"><br>
+      <div class="card-actions justify-end">
+    <button class="btn gap-2" type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      Delete Image</button>
+      </div>
+    </form>
+    {#if deleteComplete}
+  <div class="success shadow-lg alert-success">
+    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <span>Image Deleted</span>
+  </div>
+  {/if}
   </div>
 {/if}
 {#if !restaurant.img}
@@ -99,6 +128,12 @@
     </div>
   </form>
   </div>
+  {#if uploadComplete}
+  <div class="success shadow-lg alert-success">
+    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <span>Upload Complete</span>
+  </div>
+  {/if}
 </div>
 {/if}
 </div>
