@@ -7,11 +7,19 @@
     let restaurantsList = [];
 
     let cuisines = ["Irish", "Italian", "Chinese", "Indian", "Thai", "Mexican", "French", "Seafood", "Steakhouse", "Deli"];
-    
+    let categories = ["Fine Dining", "Casual Dining", "Fast Casual", "Fast Food", "Cafe", "Buffet", "Pub"]
+
     let cuisineChart = {
         labels: cuisines,
         datasets: [{
             values: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        }]
+    };
+
+    let categoryChart = {
+        labels: categories,
+        datasets: [{
+            values: [0, 0, 0, 0, 0, 0, 0]
         }]
     };
 
@@ -22,6 +30,12 @@
                 if(restaurant.cuisine == cuisine) {
                     let cuisineIndex = cuisines.indexOf(cuisine);
                     cuisineChart.datasets[0].values[cuisineIndex]++;
+                }
+            });
+            categories.forEach(category => {
+                if(restaurant.category == category) {
+                    let categoryIndex = categories.indexOf(category);
+                    categoryChart.datasets[0].values[categoryIndex]++;
                 }
             })
         })
@@ -37,8 +51,12 @@
   </div>
   
   <div class="container mx-auto mt-4">
-    <div class="card bg-base-100 shadow-xl p-10">
+    <div class="card bg-base-100 shadow-xl p-10 mb-2">
         <h2 class="text-2xl mx-auto">Restaurants by Cuisine</h2>
         <Chart data={cuisineChart} type="pie" maxSlices="10" />
+    </div>
+    <div class="card bg-base-100 shadow-xl p-10">
+        <h2 class="text-2xl mx-auto">Restaurants by Category</h2>
+        <Chart data={categoryChart} type="bar" />
     </div>
   </div>
