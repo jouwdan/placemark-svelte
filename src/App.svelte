@@ -12,7 +12,7 @@
 
   import Router from "svelte-spa-router";
 
-  setContext("PlacemarkService", new PlacemarkService("http://localhost:4000"));
+  setContext("PlacemarkService", new PlacemarkService("http://placemarkapp.herokuapp.com"));
 
   let routes = {
     "/": Main,
