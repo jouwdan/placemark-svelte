@@ -6,6 +6,7 @@
       <ul class="menu menu-horizontal p-0 text-white">
         <li><a href="/#/dashboard">Dashboard</a></li>
         <li><a href="/#/map">Map</a></li>
+        <li><a href="/#/analytics">Analytics</a></li>
         <li><a href="/#/logout">Log Out</a></li>
       </ul>
     </div>

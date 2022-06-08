@@ -8,6 +8,7 @@
   import Dashboard from "./pages/Dashboard.svelte"
   import Restaurant from "./pages/Restaurant.svelte"
   import Map from "./pages/Map.svelte"
+  import Analytics from "./pages/Analytics.svelte"
 
   import Router from "svelte-spa-router";
 
@@ -21,7 +22,8 @@
     "/signup": Signup,
     "/dashboard": Dashboard,
     "/restaurant/:id": Restaurant,
-    "/map": Map
+    "/map": Map,
+    "/analytics": Analytics
   }
 </script>
 
