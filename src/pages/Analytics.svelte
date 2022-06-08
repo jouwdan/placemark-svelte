@@ -4,7 +4,7 @@
     import {getContext, onMount} from "svelte";
 
     const placemarkService = getContext("PlacemarkService");
-    let restaurantsList = [];((value, index) => data.indexOf(value) === index);
+    let restaurantsList = [];
 
     let cuisines = ["Irish", "Italian", "Chinese", "Indian", "Thai", "Mexican", "French", "Seafood", "Steakhouse", "Deli"];
     
